@@ -25,13 +25,22 @@ function createGalleryMarkup(galleryItems) {
 
 function onGalleryCardClick(evt) {
     evt.preventDefault();
-    const isGaleryImage = evt.target.classList.contains(".gallery__image");
+    const isGaleryImage = evt.target.classList.contains("gallery__image");
     if (!isGaleryImage) {
-        return;
+        return;  
     }
-    console.log(evt.target)
+
+    const getOriginalSizeImages = evt.target.dataset.sourse;
+
+    const instance = basicLightbox.create(`
+    <img src="${getOriginalSizeImages}" width="800" height="600">
+`)
+
+instance.show()
 }
-console.log(galleryItems);
+
+
+// console.log(galleryItems);
 
 
 
