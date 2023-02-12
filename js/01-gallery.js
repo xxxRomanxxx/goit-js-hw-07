@@ -40,7 +40,7 @@ instance.show()
 }
 
 
-// console.log(galleryItems);
+console.log(galleryItems);
 
 
 
