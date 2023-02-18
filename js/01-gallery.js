@@ -4,7 +4,7 @@ const galleryContainer = document.querySelector(".gallery");
 const galleryMarkup = createGalleryMarkup(galleryItems);
 
 galleryContainer.insertAdjacentHTML("afterbegin", galleryMarkup);
-galleryContainer.addEventListener('click', onGalleryCardClick)
+galleryContainer.addEventListener('click', onGalleryCardClick);
 
 function createGalleryMarkup(galleryItems) {
     return galleryItems
@@ -31,10 +31,25 @@ function onGalleryCardClick(evt) {
     }
 
     const getOriginalSizeImages = evt.target.dataset.sourse;
+    
+    const onCloseModal = (evt) => {
+        if (evt.code ='Escape') {
+            instance.close();
+        }
+    }
 
     const instance = basicLightbox.create(`
-    <img src="${getOriginalSizeImages}" width="800" height="600">
-`)
+    <img src="${getOriginalSizeImages}" width="800" height="600">`,
+    {
+      onShow: (instance) => {
+        window.addEventListener('keydown', onCloseModal);
+      },
+
+      onClose: (instance) => {
+        window.removeEventListener('keydown', onCloseModal);
+      }
+    }
+    );
 
 instance.show()
 }
