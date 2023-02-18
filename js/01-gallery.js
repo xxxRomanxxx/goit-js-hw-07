@@ -33,10 +33,10 @@ function onGalleryCardClick(evt) {
     const getOriginalSizeImages = evt.target.dataset.sourse;
     
     const onCloseModal = (evt) => {
-        if (evt.code ='Escape') {
+        if (evt.code === 'Escape') {
             instance.close();
         }
-    }
+    };
 
     const instance = basicLightbox.create(`
     <img src="${getOriginalSizeImages}" width="800" height="600">`,
@@ -47,7 +47,7 @@ function onGalleryCardClick(evt) {
 
       onClose: (instance) => {
         window.removeEventListener('keydown', onCloseModal);
-      }
+      },
     }
     );
 

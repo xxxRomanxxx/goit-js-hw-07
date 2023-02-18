@@ -18,13 +18,13 @@ function createGalleryMarkup(galleryItems) {
 
 function onGalleryCardClick(evt) {
   evt.preventDefault();
-//   const isGalleryImg = evt.target.classList.contains("gallery__image");
+  const isGalleryImg = evt.target.classList.contains("gallery__image");
 
-//   if (!isGalleryImg) {
-//     return;
-//   }
+  if (!isGalleryImg) {
+    return;
+  }
   
-  const lightbox = new SimpleLightbox(".gallery__item", 
+  const lightbox = new SimpleLightbox(".gallery a", 
   {
     captionDelay: 250,
     captionData: 'alt',
